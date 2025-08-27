@@ -16,7 +16,7 @@ if os.path.isfile(requirementPath):
 
 setup(
     name="release_gaplint",
-    version="0.0.0",
+    version="0.0.1",
     py_modules=["release_gaplint"],
     url="",
     license="GPL3",

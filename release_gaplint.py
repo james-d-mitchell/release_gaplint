@@ -40,10 +40,10 @@ def release_steps():
     return (
         f"git push origin {rc_branch()}",
         f"open a PR from {rc_branch()} to main:\n"
-        f"https://github.com/james-d-mitchell/digraphs/pull/new/{rc_branch()}",
-        " wait for the CI to complete successfully",
-        f"git checkout main && git merge {rc_branch()} && git push origin main",
-        f"git branch -D {rc_branch()} && git push origin --delete {rc_branch()}",
+        f"    https://github.com/james-d-mitchell/digraphs/pull/new/{rc_branch()}",
+        "wait for the CI to complete successfully",
+        f"git checkout main && git merge {rc_branch()} && git tag v{new_version()}",
+        f"git push origin main --tags && git branch -D {rc_branch()} && git push origin --delete {rc_branch()}",
     )
 
 
