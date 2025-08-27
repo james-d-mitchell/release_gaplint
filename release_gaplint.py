@@ -31,7 +31,7 @@ def _check_setup_py_version_num():
 
 
 add_checks(
-    ("checking for trailing whitespace", _check_setup_py_version_num),
+    ("checking version number in setup.py", _check_setup_py_version_num),
 )
 
 
@@ -39,13 +39,11 @@ def release_steps():
     "The release steps that will be displayed."
     return (
         f"git push origin {rc_branch()}",
-        f"open a PR from {rc_branch()} to {stable_branch()} "
-        f"(create {stable_branch()} if necessary):\n"
-        + f"https://github.com/james-d-mitchell/digraphs/pull/new/{rc_branch()}"
-        + " wait for the CI to complete successfully",
-        f"git checkout {stable_branch()} && git merge {rc_branch()}",
+        f"open a PR from {rc_branch()} to main:\n"
+        f"https://github.com/james-d-mitchell/digraphs/pull/new/{rc_branch()}",
+        " wait for the CI to complete successfully",
+        f"git checkout main && git merge {rc_branch()} && git push origin main",
         f"git branch -D {rc_branch()} && git push origin --delete {rc_branch()}",
-        f"git checkout main && git merge {stable_branch()} && git push origin main",
     )
 
 

@@ -15,9 +15,9 @@ if os.path.isfile(requirementPath):
         install_requires = f.read().splitlines()
 
 setup(
-    name="release_semigroups",
+    name="release_gaplint",
     version="0.0.0",
-    py_modules=["release_semigroups"],
+    py_modules=["release_gaplint"],
     url="",
     license="GPL3",
     author="James D. Mitchell",
