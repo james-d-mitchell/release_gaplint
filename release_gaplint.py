@@ -3,14 +3,11 @@
 This module contains a script for releasing the Semigroups GAP package.
 """
 
-import os
 import re
-import glob
-import subprocess
 
 from release import add_checks, exit_abort, exit_error, get_file_contents
 from release import main as _main
-from release import new_version, rc_branch, stable_branch, today, exec_string
+from release import new_version, rc_branch
 
 
 def _check_setup_py_version_num():
